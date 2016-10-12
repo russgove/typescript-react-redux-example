@@ -7,3 +7,9 @@ export const LOGIN_USER_ERROR = 'App/LOGIN_USER_ERROR';
 
 export const LOGOUT_USER = 'App/LOGOUT_USER';
 export const FORM_RESET = 'redux-form/RESET';
+
+
+
+export const ADD_LIST = 'App/ADD_LIST';
+export const ADD_LISTS = 'App/ADD_LISTS';
+export const REMOVE_LIST = 'App/REMOVE_LIST';

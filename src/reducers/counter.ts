@@ -14,6 +14,7 @@ function counterReducer(state = INITIAL_STATE, action = { type: '' }) {
   switch (action.type) {
 
   case INCREMENT_COUNTER:
+  debugger;
     return state.update('count', (value) => value + 1);
 
   case DECREMENT_COUNTER:
