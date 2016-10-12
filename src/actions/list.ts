@@ -7,6 +7,7 @@ import {
 import List from '../model/List';
 
 export function addList(list: List) {
+    debugger;
     return {
         type: ADD_LIST,
         payload: {

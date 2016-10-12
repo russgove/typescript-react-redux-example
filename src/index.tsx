@@ -18,7 +18,7 @@ declare const __TEST__: boolean;
 
 const store = configureStore({});
 const history = syncHistoryWithStore(browserHistory, store);
-debugger;
+
 if (!__TEST__) {
   ReactDOM.render(
     <div>

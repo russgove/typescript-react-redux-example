@@ -32,7 +32,6 @@ function mapDispatchToProps(dispatch) {
 
 class App extends React.Component<IAppProps, void> {
   render() {
-    debugger;
     const { children, session, login, logout } = this.props;
     const token = session.get('token', false);
     const isLoggedIn = token && token !== null && typeof token !== 'undefined';
@@ -54,7 +53,7 @@ class App extends React.Component<IAppProps, void> {
             <Link to="/">Counter</Link>
           </NavigatorItem>
            <NavigatorItem isVisible={ isLoggedIn }>
-            <Link to="/lists">Lists</Link>
+            <Link to="/lists">About Us</Link>
           </NavigatorItem>
           <NavigatorItem isVisible={ isLoggedIn }>
             <Link to="/about">About Us</Link>

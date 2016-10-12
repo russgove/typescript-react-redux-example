@@ -5,11 +5,10 @@ interface INavigatorProps extends React.Props<any> {
 }
 
 export default function Navigator({
-
+  
   children = null,
   testid = ''
 }: INavigatorProps) {
-  debugger;
   return (
     <nav
       data-testid={ testid }

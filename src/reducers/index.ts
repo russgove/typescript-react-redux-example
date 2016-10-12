@@ -3,12 +3,12 @@ const { routerReducer } = require('react-router-redux');
 const formReducer = require('redux-form').reducer;
 import counter from './counter';
 import session from './session';
-import list from './list';
+import lists from './listreducer';
 
 const rootReducer = combineReducers({
   session,
   counter,
-  list,
+  lists,
   routing: routerReducer,
   form: formReducer,
 });

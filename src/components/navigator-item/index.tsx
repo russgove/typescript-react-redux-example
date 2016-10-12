@@ -13,7 +13,7 @@ export default function NavigatorItem({
   mr = false,
   ml = false,
 }: INavigatorItemProps) {
-  debugger;
+  
   const navItemClasses = classNames('truncate', {
     hide: !isVisible,
     mr2: mr,
