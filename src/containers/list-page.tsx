@@ -1,7 +1,7 @@
 import * as React from 'react';
 const connect = require('react-redux').connect;
 
-import { addList, removeList } from '../actions/list';
+import { addList, removeList } from '../actions/listActions';
 import List from '../model/List';
 import Container from '../components/container';
 import ListView from '../components/listview';

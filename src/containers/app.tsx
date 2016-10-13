@@ -6,7 +6,7 @@ import { loginUser, logoutUser } from '../actions/session';
 import Button from '../components/button';
 import Content from '../components/content';
 import LoginModal from '../components/login/login-modal';
-import Logo from '../components/logo';
+
 import Navigator from '../components/navigator';
 import NavigatorItem from '../components/navigator-item';
 
@@ -46,18 +46,14 @@ class App extends React.Component<IAppProps, void> {
           hasError={ session.get('hasError', false) }
           isVisible={ !isLoggedIn } />
         <Navigator testid="navigator">
-          <NavigatorItem mr>
-            <Logo />
-          </NavigatorItem>
-          <NavigatorItem isVisible={ isLoggedIn } mr>
+        
+          <NavigatorItem  mr>
             <Link to="/">Counter</Link>
           </NavigatorItem>
-           <NavigatorItem isVisible={ isLoggedIn } mr>
+           <NavigatorItem  mr>
             <Link to="/lists">Lists</Link>
           </NavigatorItem>
-          <NavigatorItem isVisible={ isLoggedIn }>
-            <Link to="/about">About Us</Link>
-          </NavigatorItem>
+         
           <div className="flex flex-auto"></div>
           <NavigatorItem isVisible={ isLoggedIn } mr>
             <div
