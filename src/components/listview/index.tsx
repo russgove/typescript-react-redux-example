@@ -7,20 +7,20 @@ interface IListViewProps extends React.Props<any> {
   addList: () => void;
   removeList: () => void;
 };
-function listRow(list:List){
+function listRow(list: List) {
   return (
     <tr>
-       <td>
-         {list.id}
-      </td>
-       <td>
-         {list.title}
+      <td>
+        {list.id}
       </td>
       <td>
-         {list.url}
+        {list.title}
+      </td>
+      <td>
+        {list.url}
       </td>
     </tr>
-  )
+  );
 }
 export default function ListView({
   lists,
@@ -37,12 +37,12 @@ export default function ListView({
         onClick={removeList}>
         -
       </Button>
-      
+
       <Button
         testid="counter-incrementButton"
         id="qa-increment-button"
         className="col-2"
-        onClick={removeList}>
+        onClick={addList}>
         +
       </Button>
 
@@ -51,18 +51,18 @@ export default function ListView({
         id="qa-counter-div"
         >
         <tr>
-        <th>
-        List ID
-        </th>
-           <th>
-        List Name
-        </th>
-           <th>
-        List Url
-        </th>
+          <th>
+            List ID
+          </th>
+          <th>
+            List Name
+          </th>
+          <th>
+            List Url
+          </th>
         </tr>
         {
-            lists.map(function(col,j){return listRow(col);})
+          lists.map(function (col, j) { return listRow(col); })
         }
       </table>
 
