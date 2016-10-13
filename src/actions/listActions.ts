@@ -9,7 +9,7 @@ import {
     GET_LISTITEMS
     
 } from '../constants';
-import * as fetch from '../../typings/globals/whatwg-fetch/index.d';
+import 'whatwg-fetch';
 import List from '../model/List';
 import ListItem from '../model/ListItem';
 
@@ -60,6 +60,14 @@ export function addListItems(listItems: ListItem[]) {
         type: ADD_LISTITEMS,
         payload: {
             listItems: listItems
+        }
+    };
+}
+export function getListItems() {
+    return {
+        type: GET_LISTITEMS,
+        payload: {
+           fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes');
         }
     };
 }
