@@ -4,7 +4,7 @@ const connect = require('react-redux').connect;
 import { addList, removeList } from '../actions/listActions';
 import List from '../model/List';
 import Container from '../components/container';
-import ListView from '../components/listview';
+import ListView from '../components/Listview';
 
 interface IListViewPageProps extends React.Props<any> {
   lists: Array<List>;

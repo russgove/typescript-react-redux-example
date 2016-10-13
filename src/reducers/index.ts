@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 const { routerReducer } = require('react-router-redux');
 const formReducer = require('redux-form').reducer;
-import counter from './counter';
-import session from './session';
 import lists from './listreducer';
+import listItems from './listitemreducer';
 
 const rootReducer = combineReducers({
-  session,
-  counter,
+
+
   lists,
+  listItems,
   routing: routerReducer,
   form: formReducer,
 });

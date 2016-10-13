@@ -1,8 +1,8 @@
 import { Map } from 'immutable';
 
 import fireAction from '../../test-utils/fire-action';
-import List from '../model/list';
-import listReducer from './list';
+import List from '../model/List';
+import listReducer from './listReducer';
 
 import {
     ADD_LIST,
@@ -22,7 +22,7 @@ describe('list reducer', () => {
     describe('on ADD_LIST', () => {
         it('should increment list.contt', () => {
             const previousValue = state.length;
-            let list = new List();
+            let list = new List("1",'2','3');
             state = fireAction(listReducer, state, ADD_LIST, { list: list });
             expect(state.length).toBe(previousValue + 1);
         });

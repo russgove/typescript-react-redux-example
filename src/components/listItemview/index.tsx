@@ -1,32 +1,32 @@
 import * as React from 'react';
 
 import Button from '../button';
-import List from '../../model/List';
-interface IListViewProps extends React.Props<any> {
-  lists: Array<List>;
-  addList: () => void;
-  removeList: () => void;
+import ListItem from '../../model/ListItem';
+interface IListItemViewProps extends React.Props<any> {
+  listItems: Array<ListItem>;
+  addListItem: () => void;
+  removeListItem: () => void;
 };
-function listRow(list: List) {
+function listItemRow(listItem: ListItem) {
   return (
     <tr>
       <td>
-        {list.id}
+        {listItem.id}
       </td>
       <td>
-        {list.title}
+        {listItem.title}
       </td>
       <td>
-        {list.url}
+        {listItem.guid}
       </td>
     </tr>
   );
 }
-export default function ListView({
-  lists,
-  addList,
-  removeList
-}: IListViewProps) {
+export default function ListItemView({
+  listItems,
+  addListItem,
+  removeListItem
+}: IListItemViewProps) {
   debugger;
   return (
     <div >
@@ -34,7 +34,7 @@ export default function ListView({
         testid="counter-decrementButton"
         id="qa-decrement-button"
         className="bg-black col-2"
-        onClick={removeList}>
+        onClick={removeListItem}>
         -
       </Button>
 
@@ -42,7 +42,7 @@ export default function ListView({
         testid="counter-incrementButton"
         id="qa-increment-button"
         className="col-2"
-        onClick={addList}>
+        onClick={addListItem}>
         +
       </Button>
 
@@ -52,17 +52,18 @@ export default function ListView({
         >
         <tr>
           <th>
-            List ID
+            List Item ID
           </th>
           <th>
-            List Name
+            Title
           </th>
           <th>
-            List Url
+            Item GUID
           </th>
         </tr>
         {
-          lists.map(function (col, j) { return listRow(col); })
+         
+          listItems.map(function (col, j) { return listItemRow(col); })
         }
       </table>
 
