@@ -35,6 +35,7 @@ function configureStore(initialState) {
 
 function _getMiddleware(): Middleware[] {
   let middleware = [
+    
     routerMiddleware(browserHistory),
     promiseMiddleware,
     thunk,
