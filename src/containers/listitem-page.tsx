@@ -1,7 +1,7 @@
 import * as React from 'react';
 const connect = require('react-redux').connect;
 
-import { addListItem, removeListItem } from '../actions/listActions';
+import { addListItem, removeListItem, getListItems} from '../actions/listActions';
 import ListItem from '../model/ListItem';
 import Container from '../components/container';
 import ListItemView from '../components/listitemview';
@@ -10,6 +10,7 @@ interface IListViewPageProps extends React.Props<any> {
   listItems: Array<ListItem>;
   addListItem: () => void;
   removeListItem: () => void;
+  getListItems: (dispatch: any) => Promise<any>;
 };
 
 function mapStateToProps(state) {
@@ -22,11 +23,16 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   debugger;
   return {
-    addListItem: (): void => { 
-      dispatch(addListItem(new ListItem('1', 'test Item', '123-123123123-123123-123123'))); 
+    addListItem: (): void => {
+      dispatch(addListItem(new ListItem('1', 'test Item', '123-123123123-123123-123123')));
     },
-    removeListItem: (): void => { 
-      dispatch(removeListItem(new ListItem('1', 'test Item', '123-123123123-123123-123123'))); 
+     getListItems: (): void => {
+           dispatch(getListItems(dispatch));// need to ewname this one to be digfferent from the omported ome
+           
+    },
+   
+    removeListItem: (): void => {
+      dispatch(removeListItem(new ListItem('1', 'test Item', '123-123123123-123123-123123')));
     },
   };
 }
@@ -48,6 +54,7 @@ class ListItemPage extends React.Component<IListViewPageProps, void> {
         <ListItemView
           listItems={ listItems }
           addListItem={ addListItem }
+          getListItems={ getListItems }
           removeListItem={ removeListItem } />
       </Container>
     );

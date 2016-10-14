@@ -7,7 +7,7 @@ import {
     ADD_LISTITEMS,
     REMOVE_LISTITEM,
     GET_LISTITEMS
-    
+
 } from '../constants';
 import 'whatwg-fetch';
 import List from '../model/List';
@@ -63,11 +63,21 @@ export function addListItems(listItems: ListItem[]) {
         }
     };
 }
-export function getListItems() {
-    return {
-        type: GET_LISTITEMS,
-        payload: {
-           fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes');
-        }
-    };
+export function getListItems():any {
+  return  function (dispatch: any): Promise<any> {
+    return fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
+        .then(response => response.json())
+        .then(json => dispatch(gotListItems(json)));
+
+}
+}
+export function getListItemss(dispatch: any): Promise<any> {
+    return fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
+        .then(response => response.json())
+        .then(json => dispatch(gotListItems(json)));
+
+}
+export function gotListItems(items) {
+    debugger;
+
 }

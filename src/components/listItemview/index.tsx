@@ -6,6 +6,7 @@ interface IListItemViewProps extends React.Props<any> {
   listItems: Array<ListItem>;
   addListItem: () => void;
   removeListItem: () => void;
+  getListItems: () => void;
 };
 function listItemRow(listItem: ListItem) {
   return (
@@ -25,7 +26,8 @@ function listItemRow(listItem: ListItem) {
 export default function ListItemView({
   listItems,
   addListItem,
-  removeListItem
+  removeListItem,
+  getListItems
 }: IListItemViewProps) {
   debugger;
   return (
@@ -45,6 +47,13 @@ export default function ListItemView({
         onClick={addListItem}>
         +
       </Button>
+      <Button
+        testid="counter-incrementButton"
+        id="qa-increment-button"
+        className="col-2"
+        onClick={getListItems}>
+        =
+      </Button>
 
       <table
         data-testid="counter-result"
@@ -62,7 +71,7 @@ export default function ListItemView({
           </th>
         </tr>
         {
-         
+
           listItems.map(function (col, j) { return listItemRow(col); })
         }
       </table>
