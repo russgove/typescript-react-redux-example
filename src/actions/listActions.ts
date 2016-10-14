@@ -6,7 +6,9 @@ import {
     ADD_LISTITEM,
     ADD_LISTITEMS,
     REMOVE_LISTITEM,
-    GET_LISTITEMS
+    GET_LISTITEMS,
+    GOT_LISTITEMS,
+    GET_LISTITEMSERROR
 
 } from '../constants';
 import 'whatwg-fetch';
@@ -63,21 +65,36 @@ export function addListItems(listItems: ListItem[]) {
         }
     };
 }
-export function getListItems():any {
-  return  function (dispatch: any): Promise<any> {
-    return fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
-        .then(response => response.json())
-        .then(json => dispatch(gotListItems(json)));
+
+export function getListItemsAction(dispatch: any): any {
+    let payload: Promise<any> = fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
+        .then((data) => {
+            dispatch(gotListItemsAction(data)); // need to ewname this one to be digfferent from the omported ome
+        })
+        .catch((error) => {
+            dispatch(getListItemsErrorAction(error)); // need to ewname this one to be digfferent from the omported ome
+        });
+    return {
+        type: GET_LISTITEMS,
+        payload: payload
+    };
 
 }
-}
-export function getListItemss(dispatch: any): Promise<any> {
-    return fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
-        .then(response => response.json())
-        .then(json => dispatch(gotListItems(json)));
+export function getListItemsErrorAction(error) {
+    return {
+        type: GET_LISTITEMSERROR,
+        payload: {
+            error: error
+        }
+    };
 
 }
-export function gotListItems(items) {
-    debugger;
+export function gotListItemsAction(items) {
+    return {
+        type: GOT_LISTITEMS,
+        payload: {
+            items: items
+        }
+    };
 
 }
