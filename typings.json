@@ -6,6 +6,8 @@
     "node": "registry:dt/node#6.0.0+20160801161248",
     "react": "registry:dt/react#0.14.0+20160801203155",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "redux": "registry:dt/redux#3.5.2+20160703092728",
+    "redux-promise-middleware": "registry:dt/redux-promise-middleware#0.0.0+20160108032528",
     "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20160728142841"
   },
   "dependencies": {

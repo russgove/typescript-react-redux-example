@@ -67,17 +67,38 @@ export function addListItems(listItems: ListItem[]) {
 }
 
 export function getListItemsAction(dispatch: any): any {
-    let payload: Promise<any> = fetch('http://tronet.global.tronox.com/_vti_bin/listdata.svc/GoCodes')
-        .then((data) => {
-            dispatch(gotListItemsAction(data)); // need to ewname this one to be digfferent from the omported ome
+    
+    let headers = new Headers(
+    //    { 'Accept': 'application/json;odata=verbose' ,
+    //     'Cache-Control': 'no-cache' }
+    //    );    let headers = new Headers(
+        { 'Accept': 'application/json;odata=verbose' ,
+         }
+        );
+    let options = {
+        headers: headers,
+        credentials: 'same-origin'
+    };
+    let payload: Promise<any> = fetch('http://services.odata.org/TripPinRESTierService/People', {method: 'GET', headers: headers,mode: 'no-cors'})
+        .then((response) => {
+            debugger;
+            let data = response.json();
+            console.log(data);
+            let gotListItems = gotListItemsAction(data);
+            dispatch(gotListItems); // need to ewname this one to be digfferent from the omported ome
         })
         .catch((error) => {
+            console.log(error);
             dispatch(getListItemsErrorAction(error)); // need to ewname this one to be digfferent from the omported ome
         });
-    return {
+    let action = {
         type: GET_LISTITEMS,
-        payload: payload
+        payload: {
+            promise: payload
+        }
     };
+
+    return action;
 
 }
 export function getListItemsErrorAction(error) {

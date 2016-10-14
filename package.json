@@ -40,9 +40,11 @@
     "url": "https://github.com/rangle/rangle-starter/issues"
   },
   "dependencies": {
+    "es6-promise": "^4.0.5",
     "express": "^4.13.4",
     "helmet": "^2.0.0",
     "http-proxy": "^1.13.2",
+    "redux-promise-middleware": "^4.1.0",
     "winston": "^2.1.1"
   },
   "devDependencies": {

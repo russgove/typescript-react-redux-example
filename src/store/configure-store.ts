@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 
 const persistState = require('redux-localstorage');
 
-import promiseMiddleware from '../middleware/promise-middleware';
+import promiseMiddleware from 'redux-promise-middleware';
 import logger from './logger';
 import rootReducer from '../reducers';
 
@@ -24,7 +24,7 @@ function configureStore(initialState) {
     initialState,
     compose(
       applyMiddleware(..._getMiddleware()),
-      persistState('session', _getStorageConfig()),
+/////      persistState('session', _getStorageConfig()),
       __DEV__ && environment.devToolsExtension ?
         environment.devToolsExtension() :
         f => f));
@@ -37,7 +37,7 @@ function _getMiddleware(): Middleware[] {
   let middleware = [
     
     routerMiddleware(browserHistory),
-    promiseMiddleware,
+    promiseMiddleware(),
     thunk,
   ];
 
